@@ -10358,6 +10358,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerId: -1
+  projectileTypeFly: 0
+  canShoulderBash: 0
+  shoulderBashMaxTimer: 0
   dead: 0
   spawned: 0
   state: 0
@@ -10379,6 +10382,10 @@ MonoBehaviour:
   soundRange: 10
   slopeSlidingAngle: 12.5
   pickupTime: 0.45
+  skiddingThreshold: 4.6875
+  skiddingDecel: 0.17578125
+  skiddingStarDecel: 1.40625
+  skiddingIceDecel: 0.06591797
   propellerLaunchVelocity: 6
   propellerFallSpeed: 2
   propellerSpinFallSpeed: 1.5
@@ -10427,6 +10434,7 @@ MonoBehaviour:
   fireballKnockback: 0
   startedSliding: 0
   canShootProjectile: 0
+  shoulderBash: 0
   jumpLandingTimer: 0
   landing: 0
   koyoteTime: 0

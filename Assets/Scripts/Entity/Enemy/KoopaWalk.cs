@@ -173,6 +173,11 @@ public class KoopaWalk : HoldableEntity {
         if (holder)
             return;
 
+		if (player.shoulderBash)
+			{
+				player.BashRebound();
+				photonView.RPC(nameof(EnterShell), RpcTarget.All);
+			}
 
         if (shell && blue && player.groundpound && !player.onGround) {
             photonView.RPC(nameof(BlueBecomeItem), RpcTarget.All);

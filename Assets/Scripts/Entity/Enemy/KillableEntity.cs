@@ -103,9 +103,11 @@ public abstract class KillableEntity : MonoBehaviourPun, IFreezableEntity, ICust
             photonView.RPC(nameof(SetLeft), RpcTarget.All, damageDirection.x > 0);
         } else if (player.invincible > 0 || player.inShell || player.sliding
             || (player.groundpound && player.state != Enums.PowerupState.MiniMushroom && attackedFromAbove)
-            || player.state == Enums.PowerupState.MegaMushroom) {
+            || player.state == Enums.PowerupState.MegaMushroom || player.shoulderBash) {
 
             photonView.RPC(nameof(SpecialKill), RpcTarget.All, player.body.velocity.x > 0, player.groundpound, player.StarCombo++);
+			if (player.shoulderBash)
+                player.BashRebound();
         } else if (attackedFromAbove) {
             if (player.state == Enums.PowerupState.MiniMushroom) {
                 if (player.groundpound) {
